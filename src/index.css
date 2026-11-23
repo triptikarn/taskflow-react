@@ -1,0 +1,178 @@
+/* TaskFlow (React) - plum theme matching the original TaskFlow UI. */
+
+:root {
+  --plum-dark: #3d2c46;
+  --plum: #8e5ea2;
+  --plum-hover: #7c4d90;
+  --bg: #f6f1f8;
+  --panel: #ffffff;
+  --panel-soft: #faf7fc;
+  --text: #2b2135;
+  --muted: #7a6d85;
+  --danger: #b3373f;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1, h2, h3 { margin: 0 0 0.5rem; }
+
+/* ---------- buttons & forms ---------- */
+.btn {
+  border: 1px solid #d8cbe2;
+  background: var(--panel);
+  color: var(--text);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.btn:hover { background: var(--panel-soft); }
+.btn:disabled { opacity: 0.45; cursor: default; }
+
+.btn-primary { background: var(--plum); border-color: var(--plum); color: #fff; }
+.btn-primary:hover { background: var(--plum-hover); }
+
+.btn-ghost { background: transparent; color: #fdf9ff; border: 1px solid #fdf9ff; }
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.12); }
+
+.btn-small { padding: 0.25rem 0.55rem; font-size: 0.8rem; }
+.btn-danger { color: var(--danger); border-color: #e3b7bb; }
+
+label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.7rem; }
+input, select, textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #d8cbe2;
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+}
+
+.error {
+  background: #fdeeee;
+  border: 1px solid #e3b7bb;
+  color: var(--danger);
+  padding: 0.55rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* ---------- navbar ---------- */
+.navbar { background: var(--plum-dark); color: #fdf9ff; }
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.02em; }
+.navbar-user { display: flex; align-items: center; gap: 0.8rem; }
+.navbar-name { font-size: 0.9rem; opacity: 0.9; }
+
+/* ---------- layout ---------- */
+.page { max-width: 1200px; margin: 0 auto; padding: 1.2rem 1rem 2.5rem; }
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-head-actions { display: flex; align-items: flex-end; gap: 0.8rem; }
+.filter { margin-bottom: 0; }
+.filter select { margin-top: 0.3rem; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid #e6dcef;
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+}
+
+/* ---------- auth pages ---------- */
+.auth-page { display: flex; justify-content: center; padding: 3rem 1rem; }
+.auth-card {
+  background: var(--panel);
+  border: 1px solid #e6dcef;
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  width: 100%;
+  max-width: 400px;
+}
+.auth-sub { color: var(--muted); margin-top: -0.3rem; }
+.auth-card .btn-primary { width: 100%; margin-top: 0.4rem; }
+.auth-switch { font-size: 0.9rem; margin-top: 1rem; text-align: center; }
+.auth-switch a { color: var(--plum); font-weight: 600; }
+
+/* ---------- task form ---------- */
+.form-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+.form-actions { display: flex; gap: 0.6rem; margin-top: 0.4rem; }
+
+/* ---------- board ---------- */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: start;
+}
+.column {
+  background: var(--panel-soft);
+  border: 1px solid #e6dcef;
+  border-radius: var(--radius);
+  padding: 0.9rem;
+  min-height: 200px;
+}
+.column h2 { font-size: 1rem; display: flex; justify-content: space-between; }
+.count { color: var(--muted); font-weight: 400; }
+.empty { color: var(--muted); font-size: 0.9rem; }
+
+.task-card {
+  background: var(--panel);
+  border: 1px solid #e6dcef;
+  border-left: 4px solid var(--plum);
+  border-radius: 8px;
+  padding: 0.7rem 0.8rem;
+  margin-bottom: 0.7rem;
+}
+.task-card.priority-high { border-left-color: var(--danger); }
+.task-card.priority-low { border-left-color: #b9a8c9; }
+.task-card-head { display: flex; justify-content: space-between; gap: 0.5rem; }
+.task-card-head h3 { font-size: 0.98rem; margin: 0; }
+.task-notes { font-size: 0.88rem; color: var(--muted); margin: 0.4rem 0 0; white-space: pre-wrap; }
+.task-due { font-size: 0.8rem; color: var(--muted); margin: 0.45rem 0 0; }
+.task-due.overdue { color: var(--danger); font-weight: 600; }
+.task-actions { display: flex; gap: 0.4rem; margin-top: 0.6rem; align-items: center; }
+.spacer { flex: 1; }
+
+.badge {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: #efe6f5;
+  color: var(--plum-dark);
+  height: fit-content;
+}
+.badge-high { background: #fbe3e5; color: var(--danger); }
+.badge-low { background: #eeeaf1; color: var(--muted); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .board { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
